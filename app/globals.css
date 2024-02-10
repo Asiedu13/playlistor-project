@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --background: #eef5ff;
+  --secondary: #b4d4ff;
+  --accent: #86b6f6;
+  --specifics: #38555e; */
+  --background: #000;
+  --secondary: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* TODO: Add dark theme later on */
+  :root { 
+    /* --background: #176b87;
+    --secondary: #86b6f6;
+    --accent: #b4d4ff;
+    --specifics: #eef5ff; */
+  --background: #eef5ff;
+  --secondary: #b4d4ff;
+  --accent: #86b6f6;
+  --specifics: #38555e;
+}
+  
+}
+
+body {
+  background: var(--background);
+}
