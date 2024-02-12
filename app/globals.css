@@ -7,25 +7,27 @@
   --secondary: #b4d4ff;
   --accent: #86b6f6;
   --specifics: #38555e; */
-  --background: #000;
-  --secondary: #fff;
+  --background: #171717;
+  --secondary: #252525;
 }
 
 @media (prefers-color-scheme: dark) {
   /* TODO: Add dark theme later on */
-  :root { 
+  :root {
     /* --background: #176b87;
     --secondary: #86b6f6;
     --accent: #b4d4ff;
     --specifics: #eef5ff; */
-  --background: #eef5ff;
+    /* --background: #eef5ff;
   --secondary: #b4d4ff;
   --accent: #86b6f6;
-  --specifics: #38555e;
-}
-  
+  --specifics: #38555e; */
+    --background: #171717;
+    --secondary: #252525;
+  }
 }
 
 body {
   background: var(--background);
+  color: white;
 }
