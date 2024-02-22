@@ -12,6 +12,7 @@
     "@radix-ui/themes": "^2.0.3",
     "firebase": "^10.7.1",
     "firebase-admin": "^12.0.0",
+    "google-auth-library": "^9.6.3",
     "googleapis": "^130.0.0",
     "lucide-react": "^0.323.0",
     "next": "14.0.4",
