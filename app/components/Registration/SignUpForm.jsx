@@ -83,7 +83,7 @@ export function SignUpForm() {
           >
             <CustomBtn>
               <Image
-                src="/imgs/googlelogo.svg"
+                src="/images/googlelogo.svg"
                 width={20}
                 height={20}
                 alt="Google logo"

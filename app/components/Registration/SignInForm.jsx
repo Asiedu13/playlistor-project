@@ -87,7 +87,7 @@ export function SignInForm() {
           >
             <CustomBtn>
               <Image
-                src="/imgs/googlelogo.svg"
+                src="/images/googlelogo.svg"
                 width={20}
                 height={20}
                 alt="Google logo"
@@ -125,7 +125,7 @@ export function SignInForm() {
             >
               <Image
                 // src={visible ? '/imgs/eye-off.svg' : '/imgs/eye_icon.svg'}
-                src="/imgs/eye-off.svg"
+                src="/images/eye-off.svg"
                 alt="show hidden password icon"
                 width={20}
                 height={10}
