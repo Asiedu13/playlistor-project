@@ -3,23 +3,20 @@ import { NextResponse } from "next/server";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
-  const url = searchParams.get("url"); 
+  const url = searchParams.get("url");
 
   try {
     const browser = await puppeteer.launch({
       headless: true,
     });
-      const page = await browser.newPage( );
-    await page.goto(
-      url
-    
-    );
+    const page = await browser.newPage();
+    await page.goto(url);
 
     const links = await page.evaluate(() => {
       const linkList = document.querySelectorAll("#content");
 
       return Array.from(linkList).map((link) => {
-        const videoTitle = link.querySelector("h3").getAttribute('aria-label');
+        const videoTitle = link.querySelector("h3").getAttribute("aria-label");
         const videoLink = link
           .querySelector("#video-title")
           .getAttribute("href");
@@ -31,7 +28,7 @@ export async function GET(request) {
     console.log(links);
     await browser.close();
     return NextResponse.json({
-      data: links
+      data: links,
     });
   } catch (err) {
     return NextResponse.json({
