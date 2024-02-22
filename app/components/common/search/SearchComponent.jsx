@@ -1,18 +1,23 @@
 "use client";
-import { useState } from 'react';
+import { useState, useContext } from "react";
+import { SearchResults } from "../context/SearchResponseContext";
 import { ArrowUpRight, Youtube } from "lucide-react";
 
 export function SearchComponent() {
-  const [url, setUrl] = useState( '' );
+  const [url, setUrl] = useState("");
+  const [grabbing, setGrabbing] = useState(false);
+  const { results, setResults } = useContext(SearchResults);
+
   const handleChange = (e) => {
     const { value } = e.target;
-    setUrl( value );
-  }
+    setUrl(value);
+  };
   const handleClick = async () => {
+    if ( !url ) return;
     try {
-      const res = await fetch( `/extractors/youtube?url=${url}` );
+      setGrabbing(true);
+      const res = await fetch(`/extractors/youtube?url=${url}`);
       const response = await res.json();
-      console.log('This is from the web', response );
       setGrabbing(false);
       setUrl("");
       setResults(response);
