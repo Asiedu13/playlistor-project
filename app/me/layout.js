@@ -11,9 +11,11 @@ export const metadata = {
 };
 
 export default function Layout({ children }) {
-    return <main className={inter.className}>
-        <NavBar />
+  return (
+    <main className={inter.className}>
+      <NavBar />
       {children}
       <Footer />
-    </main>;
+    </main>
+  );
 }
