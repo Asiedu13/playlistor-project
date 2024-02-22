@@ -1,8 +1,22 @@
 "use client";
+import { useState } from 'react';
 import { ArrowUpRight, Youtube } from "lucide-react";
 
 export function SearchComponent() {
-  const handleClick = () => {};
+  const [url, setUrl] = useState( '' );
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setUrl( value );
+  }
+  const handleClick = async () => {
+    try {
+      const res = await fetch( `/extractors/youtube?url=${url}` );
+      const response = await res.json();
+      console.log('This is from the web', response );
+    } catch (err) {
+      return err;
+    }
+  };
   return (
     <section>
       <header className="flex flex-col gap-2 items-center mx-[10px] .h-[300px] .w-max">
@@ -20,6 +34,8 @@ export function SearchComponent() {
           type="text"
           placeholder="Link goes here"
           className="w-[400px] bg-secondary px-2 py-2 outline-none placeholder:text-sm text-white"
+          value={url}
+          onChange={handleChange}
         />
 
         <button
