@@ -1,4 +1,8 @@
-"use client";
 export default function Page() {
-  return <div>YouTube service</div>;
+    return (
+        <section>
+            This is something
+        </section>
+
+    )
 }
