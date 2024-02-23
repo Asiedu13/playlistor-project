@@ -1,29 +1,6 @@
-"use client";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
-import { auth } from "../firebase/config";
-
 export default function Page() {
-  const [user] = useAuthState(auth);
-  const [signOut] = useSignOut(auth);
-  const router = useRouter();
-  const userSession = sessionStorage.getItem("user");
-
-  const handleSignOut = async () => {
-    try {
-      const res = await signOut(auth);
-      console.log(res);
-      sessionStorage.removeItem("user", false);
-    } catch (e) {
-      console.log(`Er ${e}`);
-    }
-  };
-  if (!user && !userSession) {
-    console.log(user);
-    router.push("/login");
-  } else {
     return (
       <main className="px-[110px]">
         <header className="px-[100px] mt-[100px]">
@@ -56,4 +33,3 @@ export default function Page() {
       </main>
     );
   }
-}
