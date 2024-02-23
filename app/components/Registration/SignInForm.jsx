@@ -1,49 +1,49 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+// import { useRouter } from "next/navigation";
+// import { useEffect } from "react";
 
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase/config";
+// import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+// import { auth } from "../../firebase/config";
 
 import { CustomBtn } from "./CustomBtn";
 import { SubmitButton } from "./SubmitBtn";
 import { TextInput } from "./TextInput";
 
-import { getRedirectRes, signInWithGoogle } from "../../firebase/authFunctions";
+// import { getRedirectRes, signInWithGoogle } from "../../firebase/authFunctions";
 
 export function SignInForm() {
-  const router = useRouter();
-  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+  // const router = useRouter();
+  // const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
 
-  const handleSignIn = async (e) => {
-    e.preventDefault();
-    const target = e.target;
+  // const handleSignIn = async (e) => {
+  //   e.preventDefault();
+  //   const target = e.target;
 
-    try {
-      const res = await signInWithEmailAndPassword(
-        target.email.value,
-        target.password.value
-      );
-      //   console.log(res);
-      sessionStorage.setItem("user", true);
-      router.push("/me");
-    } catch (e) {
-      console.log(`Error ${e}`);
-    }
-  };
-  useEffect(() => {
-    // Checking the google sign in after it returns from the redirected page
-    async function checkForSignIn() {
-      const res = await getRedirectRes();
-      if (res?.token) {
-        sessionStorage.setItem("user", true);
-        router.push("/me");
-      }
-    }
-    checkForSignIn();
-  }, []);
+  //   try {
+  //     const res = await signInWithEmailAndPassword(
+  //       target.email.value,
+  //       target.password.value
+  //     );
+  //     //   console.log(res);
+  //     sessionStorage.setItem("user", true);
+  //     router.push("/me");
+  //   } catch (e) {
+  //     console.log(`Error ${e}`);
+  //   }
+  // };
+  // useEffect(() => {
+  //   // Checking the google sign in after it returns from the redirected page
+  //   async function checkForSignIn() {
+  //     const res = await getRedirectRes();
+  //     if (res?.token) {
+  //       sessionStorage.setItem("user", true);
+  //       router.push("/me");
+  //     }
+  //   }
+  //   checkForSignIn();
+  // }, []);
 
   return (
     <section className="flex flex-col justify-center items-center h-screen">
@@ -80,10 +80,10 @@ export function SignInForm() {
           {/* Signing in with google */}
           <Link
             href="##"
-            onClick={(e) => {
-              e.preventDefault();
-              signInWithGoogle();
-            }}
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   signInWithGoogle();
+            // }}
           >
             <CustomBtn>
               <Image
@@ -135,7 +135,8 @@ export function SignInForm() {
           </div>
 
           <Link
-            href="/forgot"
+            // href="/forgot"
+            href="#"
             className="ml-[55%] font-semibold text-sm md:ml-[65%]"
           >
             Forgot password?
