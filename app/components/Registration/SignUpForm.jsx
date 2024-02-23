@@ -49,7 +49,9 @@ export function SignUpForm() {
       <h1 className="mb-[40px] font-semibold text-specifics">
         TubeLinkExtract.com
       </h1>
-      <form onSubmit={handleSubmit} className="max-w-[100%] w-[440px] h-[519px] shadow-md rounded-2xl bg-[#fff] p-10 ">
+      <form
+        // onSubmit={handleSubmit}
+        className="max-w-[100%] w-[440px] h-[519px] shadow-md rounded-2xl bg-[#fff] p-10 ">
         {/* Greetingd */}
         <header className="flex flex-col justify-center items-center ">
           <h1 className={` text-specifics text-3xl font-black mb-[16px]`}>
