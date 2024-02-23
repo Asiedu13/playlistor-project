@@ -28,6 +28,6 @@ export function ResultsMain(links) {
       </section>
     );
   } else {
-    return <div>' '</div>;
+    return <div>&apos; &apos;</div>;
   }
 }
