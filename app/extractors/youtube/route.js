@@ -6,8 +6,12 @@ export async function GET(request) {
   const url = searchParams.get("url");
 
   try {
+    // const browser = await puppeteer.launch({
+    //   headless: true,
+    // });
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: "new",
+      args: ["--no-sandbox", "--disable-dev-shm-usage"],
     });
     const page = await browser.newPage();
     await page.goto(url);
