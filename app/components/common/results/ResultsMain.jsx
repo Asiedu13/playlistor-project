@@ -1,15 +1,11 @@
-"use client";
-import { SearchResults } from "../context/SearchResponseContext";
-import { useContext } from "react";
-
-export function ResultsMain(links) {
-  const { results, setResults } = useContext(SearchResults);
-  if (results) {
+'use client';
+export function ResultsMain( { data } ) {
+  console.log('results main', data );
     return (
       <section>
         <div className="text-white text-lg">Search Results</div>
         <section className="grid grid-cols-4 gap-10 h-[700px] overflow-y-scroll overflow-x-hidden">
-          {results.data.map((video, index) => (
+          {data.map((video, index) => (
             <div
               key={index}
               className="text-white w-[300px] h-max rounded-md p-5 border-1 shadow-md bg-slate-400"
@@ -27,7 +23,4 @@ export function ResultsMain(links) {
         </section>
       </section>
     );
-  } else {
-    return <div>&apos; Searching &apos;</div>;
-  }
 }

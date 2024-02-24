@@ -30,7 +30,8 @@ export async function GET(request) {
     return NextResponse.json({
       data: links,
     });
-  } catch (err) {
+  } catch ( err ) {
+    console.log( err );
     return NextResponse.json({
       err,
     });

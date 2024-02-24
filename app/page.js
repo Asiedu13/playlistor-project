@@ -1,12 +1,15 @@
+'use client'
+import { useContext } from 'react';
 import { Youtube, Clapperboard } from "lucide-react";
 import { Logo } from "./components/common/ui/Logo";
 import { SearchComponent } from "./components/common/search/SearchComponent";
 
-import { SearchResponseContext } from "./components/common/context/SearchResponseContext";
+import { SearchResponseContext, SearchResults } from "./components/common/context/SearchResponseContext";
 
 import { ResultsMain } from "./components/common/results/ResultsMain";
 
 export default function Home() {
+  const { results, setResults } = useContext( SearchResults )
   return (
     <section className="bg-background h-[100vh]">
       <header className="mx-24 .my-[30px] bg-secondary rounded-md">
@@ -26,7 +29,6 @@ export default function Home() {
       </header>
 
       <main className="mx-[100px] h-[300px] rounded-md .grid .grid-cols-2">
-        <SearchResponseContext>
           <SearchComponent />
           <section>
             {/* Various formats go here
@@ -42,8 +44,11 @@ export default function Home() {
                   - Ratings
             */}
           </section>
-          <ResultsMain />
-        </SearchResponseContext>
+          {
+            results?.data ?
+            <ResultsMain data={results.data} /> : ''
+
+          }
       </main>
     </section>
   );

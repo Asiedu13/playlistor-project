@@ -2,7 +2,7 @@
 
 import { createContext, useState } from "react";
 
-export const SearchResults = createContext();
+export const SearchResults = createContext(' ');
 
 export function SearchResponseContext({children}) {
     const [results, setResults] = useState();

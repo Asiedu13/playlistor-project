@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useState, useContext } from "react";
 import { SearchResults } from "../context/SearchResponseContext";
 import { ArrowUpRight, Youtube } from "lucide-react";
