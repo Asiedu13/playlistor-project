@@ -10,7 +10,6 @@ export async function GET(request) {
     //   headless: true,
     // });
     const browser = await puppeteer.launch({
-      headless: "new",
       args: ["--no-sandbox", "--disable-dev-shm-usage"],
     });
     const page = await browser.newPage();
@@ -20,10 +19,8 @@ export async function GET(request) {
       const linkList = document.querySelectorAll("#content");
 
       return Array.from(linkList).map((link) => {
-        const videoTitle = link.querySelector("h3").getAttribute("aria-label");
-        const videoLink = link
-          .querySelector("#video-title")
-          .getAttribute("href");
+        const videoTitle = link.querySelector("#video-title").innerText
+        const videoLink = link.querySelector("#video-title").getAttribute("href");
 
         return { videoTitle, videoLink };
       });
