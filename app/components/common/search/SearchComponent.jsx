@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useContext } from "react";
 import { SearchResults } from "../context/SearchResponseContext";
 import { ArrowUpRight, Youtube } from "lucide-react";
@@ -13,9 +13,10 @@ export function SearchComponent() {
     setUrl(value);
   };
   const handleClick = async () => {
-    if ( !url ) return;
+    if (!url) return;
     try {
-      setGrabbing(true);
+      setGrabbing( true );
+      console.log(`/extractors/youtube?url=${url}`);
       const res = await fetch(`/extractors/youtube?url=${url}`);
       const response = await res.json();
       setGrabbing(false);

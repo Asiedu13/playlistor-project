@@ -8,8 +8,7 @@ export function ResultsMain( { data } ) {
           {data.map((video, index) => (
             <div
               key={index}
-              className="text-white w-[300px] h-max rounded-md p-5 border-1 shadow-md bg-slate-400"
-            >
+              className="text-white w-[300px] h-max rounded-md p-5 border-1 shadow-md bg-slate-400">
               <h2>{video.videoTitle}</h2>
               <a
                 className="underline"
