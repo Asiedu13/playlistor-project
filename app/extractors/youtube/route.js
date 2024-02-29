@@ -18,7 +18,7 @@ export async function GET(request) {
       return Array.from(linkList).map((link) => {
         const videoTitle = link.querySelector("h3").getAttribute('aria-label')
         const videoLink = link.querySelector("#video-title").getAttribute("href");
-
+        console.log('From the backend', videoTitle, videoLink)
         return { videoTitle, videoLink };
       });
     });
